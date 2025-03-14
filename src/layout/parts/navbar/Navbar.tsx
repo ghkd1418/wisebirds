@@ -3,6 +3,9 @@ import { Link } from 'react-router';
 import { routes } from '@/routes';
 import type { BackOfficeUser } from '@/types/user';
 
+import RoleSelect from '@/components/feature/Role/RoleSelect';
+import Profile from '@/components/views/Profile/Profile';
+
 import LOGO from '@/assets/wisebirds_logo.png';
 
 import * as styles from './Navbar.css';
@@ -16,7 +19,7 @@ const Navbar = () => {
 			id: 1,
 			name: '와이즈버즈',
 		},
-		role: 'manager',
+		role: '매니저',
 	};
 
 	return (
@@ -38,6 +41,8 @@ const Navbar = () => {
 							</Link>
 						</li>
 					))}
+				<RoleSelect />
+				<Profile />
 			</ul>
 		</nav>
 	);
