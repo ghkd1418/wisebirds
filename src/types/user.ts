@@ -9,7 +9,8 @@ export interface BackOfficeUser {
 	role: BackOfficeUserRole;
 }
 
-export type BackOfficeUserRole = 'admin' | 'manager' | 'viewer';
+export const BACK_OFFICE_ROLES = ['어드민', '매니저', '뷰어'] as const;
+export type BackOfficeUserRole = (typeof BACK_OFFICE_ROLES)[number];
 
 export interface ServiceUser {
 	id: number;

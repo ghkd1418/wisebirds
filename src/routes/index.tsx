@@ -16,19 +16,19 @@ export const routes: RouteConfig[] = [
 	{
 		path: '/',
 		element: <Home />,
-		allowedRoles: ['admin', 'manager', 'viewer'],
+		allowedRoles: ['어드민', '매니저', '뷰어'],
 		label: '홈',
 	},
 	{
 		path: '/campaigns',
 		element: <></>,
-		allowedRoles: ['admin', 'manager', 'viewer'],
+		allowedRoles: ['어드민', '매니저', '뷰어'],
 		label: '캠페인',
 	},
 	{
 		path: '/users',
 		element: <></>,
-		allowedRoles: ['admin'],
+		allowedRoles: ['어드민'],
 		label: '사용자',
 	},
 ];
