@@ -1,3 +1,5 @@
+import type { ROLES } from '@/constants/auth';
+
 export interface BackOfficeUser {
 	id: number;
 	email: string;
@@ -6,11 +8,10 @@ export interface BackOfficeUser {
 		id: number;
 		name: string;
 	};
-	role: BackOfficeUserRole;
+	role: RoleType;
 }
 
-export const BACK_OFFICE_ROLES = ['어드민', '매니저', '뷰어'] as const;
-export type BackOfficeUserRole = (typeof BACK_OFFICE_ROLES)[number];
+export type RoleType = keyof typeof ROLES;
 
 export interface ServiceUser {
 	id: number;

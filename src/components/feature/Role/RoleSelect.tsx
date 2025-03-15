@@ -1,22 +1,23 @@
-import { useState } from 'react';
-
-import type { BackOfficeUserRole } from '@/types/user';
-import { BACK_OFFICE_ROLES } from '@/types/user';
+import { ROLES } from '@/constants/auth';
+import { useRoleStore } from '@/store/role';
+import type { RoleType } from '@/types/user';
 
 import Select from '@/components/common/Select/Select';
 
 const RoleSelect = () => {
-	const [selectedRole, setSelectedRole] = useState<BackOfficeUserRole>(
-		BACK_OFFICE_ROLES[0],
-	);
+	const { role, setRole } = useRoleStore();
+
+	const handleChange = (role: RoleType) => {
+		setRole(role);
+	};
 
 	return (
-		<Select onChange={(role) => setSelectedRole(role as BackOfficeUserRole)}>
-			<Select.Trigger>{selectedRole}</Select.Trigger>
+		<Select onChange={(role) => handleChange(role as RoleType)}>
+			<Select.Trigger>{ROLES[role]}</Select.Trigger>
 			<Select.OptionList>
-				{BACK_OFFICE_ROLES.map((role) => (
-					<Select.Option key={role} value={role}>
-						{role}
+				{Object.entries(ROLES).map(([key, value]) => (
+					<Select.Option key={key} value={key}>
+						{value}
 					</Select.Option>
 				))}
 			</Select.OptionList>

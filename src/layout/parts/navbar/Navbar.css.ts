@@ -5,10 +5,12 @@ import { sprinkles } from '@/styles/sprinkles.css';
 export const navStyle = style([
 	sprinkles({
 		display: 'flex',
-		flexDirection: 'column',
 		background: 'primary',
 		padding: '1x',
 	}),
+	{
+		justifyContent: 'space-between',
+	},
 ]);
 
 export const ulStyle = style([
@@ -29,3 +31,11 @@ export const boldStyle = style({
 	fontWeight: 'bold',
 	color: 'white',
 });
+
+export const userStyle = style([
+	sprinkles({
+		display: 'flex',
+		alignItems: 'center',
+		gap: '4x',
+	}),
+]);

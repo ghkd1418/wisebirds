@@ -3,12 +3,14 @@ import { createBrowserRouter } from 'react-router';
 
 import { GlobalLayout } from '@/layout';
 import { Home, NotFound, RouterErrorBoundary } from '@/pages';
-import type { BackOfficeUserRole } from '@/types/user';
+import type { RoleType } from '@/types/user';
+
+import User from '@/pages/User';
 
 interface RouteConfig {
 	path: string;
 	element: JSX.Element;
-	allowedRoles: BackOfficeUserRole[];
+	allowedRoles: RoleType[];
 	label?: string;
 }
 
@@ -16,19 +18,23 @@ export const routes: RouteConfig[] = [
 	{
 		path: '/',
 		element: <Home />,
-		allowedRoles: ['어드민', '매니저', '뷰어'],
+		allowedRoles: ['admin', 'manager', 'viewer'],
 		label: '홈',
 	},
 	{
 		path: '/campaigns',
 		element: <></>,
-		allowedRoles: ['어드민', '매니저', '뷰어'],
+		allowedRoles: ['admin', 'manager', 'viewer'],
 		label: '캠페인',
 	},
 	{
 		path: '/users',
-		element: <></>,
-		allowedRoles: ['어드민'],
+		element: (
+			<>
+				<User />
+			</>
+		),
+		allowedRoles: ['admin'],
 		label: '사용자',
 	},
 ];
