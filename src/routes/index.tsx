@@ -1,6 +1,7 @@
 import type { JSX } from 'react';
 import { createBrowserRouter } from 'react-router';
 
+import RequireAuth from '@/features/auth/RequireAuth';
 import { GlobalLayout } from '@/layout';
 import { Home, NotFound, RouterErrorBoundary } from '@/pages';
 import type { RoleType } from '@/types/user';
@@ -29,11 +30,7 @@ export const routes: RouteConfig[] = [
 	},
 	{
 		path: '/users',
-		element: (
-			<>
-				<User />
-			</>
-		),
+		element: <User />,
 		allowedRoles: ['admin'],
 		label: '사용자',
 	},
@@ -47,7 +44,11 @@ export const routers = createBrowserRouter([
 		children: [
 			...routes.map((page) => ({
 				path: page.path,
-				element: <>{page.element}</>,
+				element: (
+					<RequireAuth allowedRoles={page.allowedRoles}>
+						{page.element}
+					</RequireAuth>
+				),
 			})),
 		],
 	},
