@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router';
 
 import RequireAuth from '@/features/auth/RequireAuth';
 import { GlobalLayout } from '@/layout';
-import { Home, NotFound, RouterErrorBoundary } from '@/pages';
+import { Campaign, Home, NotFound, RouterErrorBoundary } from '@/pages';
 import type { RoleType } from '@/types/user';
 
 import User from '@/pages/User';
@@ -24,7 +24,7 @@ export const routes: RouteConfig[] = [
 	},
 	{
 		path: '/campaigns',
-		element: <></>,
+		element: <Campaign />,
 		allowedRoles: ['admin', 'manager', 'viewer'],
 		label: '캠페인',
 	},
