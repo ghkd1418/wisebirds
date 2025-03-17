@@ -87,39 +87,37 @@ export function CampaignTable() {
 		getCoreRowModel: getCoreRowModel(),
 	});
 
+	if (isLoading) return <div>Loading...</div>;
+
 	return (
 		<div>
-			{isLoading ? (
-				<p>로딩 중...</p>
-			) : (
-				<table className={styles.tableContainer}>
-					<thead className={styles.tableHeader}>
-						{table.getHeaderGroups().map((headerGroup) => (
-							<tr key={headerGroup.id}>
-								{headerGroup.headers.map((header) => (
-									<th key={header.id}>
-										{flexRender(
-											header.column.columnDef.header,
-											header.getContext(),
-										)}
-									</th>
-								))}
-							</tr>
-						))}
-					</thead>
-					<tbody>
-						{table.getRowModel().rows.map((row) => (
-							<tr key={row.id} className={styles.tableRow}>
-								{row.getVisibleCells().map((cell) => (
-									<td key={cell.id} className={styles.tableCell}>
-										{flexRender(cell.column.columnDef.cell, cell.getContext())}
-									</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			)}
+			<table className={styles.tableContainer}>
+				<thead className={styles.tableHeader}>
+					{table.getHeaderGroups().map((headerGroup) => (
+						<tr key={headerGroup.id}>
+							{headerGroup.headers.map((header) => (
+								<th key={header.id}>
+									{flexRender(
+										header.column.columnDef.header,
+										header.getContext(),
+									)}
+								</th>
+							))}
+						</tr>
+					))}
+				</thead>
+				<tbody>
+					{table.getRowModel().rows.map((row) => (
+						<tr key={row.id} className={styles.tableRow}>
+							{row.getVisibleCells().map((cell) => (
+								<td key={cell.id} className={styles.tableCell}>
+									{flexRender(cell.column.columnDef.cell, cell.getContext())}
+								</td>
+							))}
+						</tr>
+					))}
+				</tbody>
+			</table>
 
 			<div className={styles.paginationContainer}>
 				<button

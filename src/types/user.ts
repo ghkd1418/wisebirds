@@ -19,3 +19,16 @@ export interface ServiceUser {
 	name: string;
 	last_login_at: string; // "2022-11-14T07:37:24.914Z"
 }
+
+export interface ServiceUserResponse {
+	content: ServiceUser[];
+	total_elements: number;
+	total_pages: number;
+	first: boolean;
+	last: boolean;
+	number: number;
+	size: number;
+	sort: object;
+	number_of_elements: number;
+	empty: boolean;
+}

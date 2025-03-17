@@ -3,10 +3,8 @@ import { createBrowserRouter } from 'react-router';
 
 import RequireAuth from '@/features/auth/RequireAuth';
 import { GlobalLayout } from '@/layout';
-import { Campaign, Home, NotFound, RouterErrorBoundary } from '@/pages';
+import { Campaign, Home, NotFound, RouterErrorBoundary, User } from '@/pages';
 import type { RoleType } from '@/types/user';
-
-import User from '@/pages/User';
 
 interface RouteConfig {
 	path: string;
