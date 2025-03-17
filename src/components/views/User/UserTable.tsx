@@ -45,7 +45,6 @@ const UserTable = () => {
 	const [page, setPage] = useState(0);
 
 	const { data, isLoading } = useUserList(page, PAGE_SIZE);
-	console.log('🚀 ~ UserTable ~ data:', data);
 
 	const table = useReactTable({
 		data: data?.content || [],
