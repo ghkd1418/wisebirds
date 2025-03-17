@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { useGetCampaignList } from '@/services/campaign/getCampaignList';
+import { useRoleStore } from '@/store/role';
 import type { Campaign } from '@/types/campaign';
 import {
 	createColumnHelper,
@@ -20,11 +21,22 @@ const columns = [
 		header: '상태',
 		cell: (info) => {
 			const [isChecked, setIsChecked] = useState(info.getValue());
+			const { role } = useRoleStore();
+
+			const isDisabled = role !== 'admin';
+
+			const handleChnage = () => {
+				if (isDisabled) {
+					return;
+				}
+				setIsChecked((prev) => !prev);
+			};
 
 			return (
 				<Switch
 					checked={isChecked}
-					onChange={() => setIsChecked((prev) => !prev)}
+					onChange={handleChnage}
+					disabled={isDisabled}
 				/>
 			);
 		},

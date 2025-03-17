@@ -19,6 +19,10 @@ export const checkedStyle = style({
 	backgroundColor: vars.color.primary,
 });
 
+export const disabledStyle = style({
+	backgroundColor: vars.color.negative,
+});
+
 export const switchHandle = style({
 	width: '22px',
 	height: '22px',
