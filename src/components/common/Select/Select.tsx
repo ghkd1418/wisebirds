@@ -41,7 +41,7 @@ interface SelectProps {
 
 const Select = ({ value, onChange, children }: SelectProps) => {
 	const [isOpen, setIsOpen] = useState(false);
-	const selectRef = useClickOutside(() => setIsOpen(false));
+	const selectRef = useClickOutside<HTMLDivElement>(() => setIsOpen(false));
 
 	const contextValue = {
 		value,
